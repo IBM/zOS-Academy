@@ -1,0 +1,39 @@
+{
+    "$schema": "./zowe.schema.json",
+    "profiles": {
+        "zOSAcademy": {
+            "type": "zosmf",
+            "properties": {
+                "host": "share.centers.ihost.com",
+                "port": 443,
+                "responseTimeout": 20000
+            },
+            "secure": [
+                "user",
+                "password"
+            ]
+        },
+        "tso": {
+            "type": "tso",
+            "properties": {
+                "account": "",
+                "codePage": "1047",
+                "logonProcedure": "IZUFPROC"
+            },
+            "secure": []
+        },
+        "ssh": {
+            "type": "ssh",
+            "properties": {
+                "port": 22
+            },
+            "secure": []
+        },
+    },
+    "defaults": {
+        "zosmf": "zOSAcademy",
+        "tso": "tso",
+        "ssh": "ssh",
+    },
+    "autoStore": true
+}
