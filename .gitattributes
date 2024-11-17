@@ -1,5 +1,6 @@
 # Default attributes
-# * text git-encoding=utf-8 zos-working-tree-encoding=ibm-1047 working-tree-encoding=utf-8
+* text=auto eol=lf
+* text git-encoding=utf-8 zos-working-tree-encoding=ibm-1047
 .gitattributes zos-working-tree-encoding=iso8859-1
 .gitignore zos-working-tree-encoding=iso8859-1
 
