@@ -6,5 +6,5 @@
 /mvnw text eol=lf
 *.cmd text eol=crlf
 
-/.mvn/** text git-encoding=utf8 zos-working-tree-encoding=utf8 working-tree-encoding=utf8
+/.mvn/** git-encoding=utf8 zos-working-tree-encoding=utf8 working-tree-encoding=utf8
 /** text git-encoding=utf8 zos-working-tree-encoding=utf8 working-tree-encoding=utf8
