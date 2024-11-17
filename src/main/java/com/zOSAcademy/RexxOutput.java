@@ -1,4 +1,4 @@
-package com.ibm.example.share_demo;
+package com.zOSAcademy;
 
 public record RexxOutput(String id, String pref, String date, String time) {
 }

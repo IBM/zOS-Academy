@@ -1,4 +1,4 @@
-package com.ibm.example.share_demo;
+package com.zOSAcademy;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

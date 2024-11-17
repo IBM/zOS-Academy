@@ -1,10 +1,10 @@
-package com.ibm.example.share_demo;
+package com.zOSAcademy;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ShareDemoApplicationTests {
+class ZosAcaRestApplicationTests {
 
 	@Test
 	void contextLoads() {
