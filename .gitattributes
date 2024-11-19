@@ -1,6 +1,9 @@
-    # Default attributes
+# Default attributes
 * text git-encoding=utf-8 zos-working-tree-encoding=ibm-1047 working-tree-encoding=utf-8
 .gitattributes zos-working-tree-encoding=iso8859-1
 .gitignore zos-working-tree-encoding=iso8859-1
 
 /** text git-encoding=utf8 zos-working-tree-encoding=utf8 working-tree-encoding=utf8
+
+# Build wrapper jars
+*.jar binary
