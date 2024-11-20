@@ -1,5 +1,6 @@
 package com.zOSAcademy;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +16,8 @@ import java.util.List;
 @RestController
 public class DemoController {
 
+    @Value("${REXX_EXEC:NOT_FOUND}") String rexxExec;
+
     @GetMapping(value = "/info")
     public String info(@RequestParam(defaultValue = "Share") String name) {
         return "Hello " + name;
@@ -22,9 +25,8 @@ public class DemoController {
 
     @GetMapping(value = "/rexx", produces = MediaType.APPLICATION_JSON_VALUE)
     public RexxOutput rexxCollector() throws IOException, InterruptedException {
-        String rexxName = "COLLECTR";
         Process process = new ProcessBuilder()
-                .command("address", "tso", rexxName)
+                .command("tsocmd", "ex '" +rexxExec+"'")
                 //.command("java", "-version") // use this for local testing
                 .redirectErrorStream(true)
                 .start();
@@ -38,13 +40,10 @@ public class DemoController {
         // Print output
         processOutput.forEach(System.out::println);
 
-        // hacky - override output
-        // should be removed if the TSO REXX call works
-        processOutput = List.of("ID,PREF,13 Nov 2024,15:41:31");
-
         // Parse output
-        String[] data = processOutput.get(0).split(",");
-        RexxOutput rexxOutput = new RexxOutput(data[0], data[1], data[2], data[3]);
+        String[] data = processOutput.get(2).split(",");
+        String daytime = processOutput.get(4);
+        RexxOutput rexxOutput = new RexxOutput(data[0], data[1], data[2], daytime);
         System.out.println(rexxOutput);
         return rexxOutput;
     }
